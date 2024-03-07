@@ -357,3 +357,13 @@ row-gap: 2rem;
   align-items: center;
   column-gap: .25rem;
 }
+/*========== CHANGE BACKGROUND HEADER ==========*/
+
+.bg-header{
+  background-color: var(--body-color);
+  box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+}
+
+.bg-header :is(.nav__logo, .nav__toggle){
+  color: var(--title-color);
+}
