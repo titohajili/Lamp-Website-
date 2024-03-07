@@ -33,4 +33,25 @@ const scrollHeader = () =>{
     this.scrollY >= 50 ? header.classList.add('bg-header')
                        : header.classList.remove('bg-header')
 }
-window.addEventListener('scroll', scrollHeader)
+window.addEventListener('scroll', scrollHeader);
+
+
+/*========== SWIPER POPULAR =========*/
+
+const popularSwiper = new Swiper('.popular__content', {
+    // Optional parameters
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        768: {
+            centeredSlides: false,
+        }
+    }
+  });
