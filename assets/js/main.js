@@ -122,3 +122,27 @@ const scrollActive = () => {
 };
 
 window.addEventListener('scroll', scrollActive);
+
+/*========= DARK LIGHT THEME =========*/
+const themeButton = document.getElementById('theme-button')
+const darkTheme = 'dark-theme'
+const iconTheme = 'ri-sun-line'
+
+const SelectedTheme = localStorage.getItem('selected-theme')
+const SelectedIcon = localStorage.getItem('selected-icon')
+
+const getCurrenTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+const getCurrenIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
+
+if(SelectedTheme){
+    document.body.classList[SelectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+    themeButton.classList[SelectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
+}
+
+themeButton.addEventListener('click', () =>{
+    document.body.classList.toggle(darkTheme)
+    themeButton.classList.toggle(iconTheme)
+
+    localStorage.setItem('selected-theme', getCurrenTheme())
+    localStorage.setItem('selected-icon', getCurrenIcon())
+})
