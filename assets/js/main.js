@@ -55,7 +55,6 @@ const popularSwiper = new Swiper('.popular__content', {
         }
     }
   });
-
 /*========== CHOOSE FAQ =========*/
 const faqItems = document.querySelectorAll('.choose__faq-item');
 
@@ -76,8 +75,6 @@ faqItems.forEach((item)=>{
         }
     })
 })
-
-
 // 3. Create function to display the content
 const toggleItem = (item) =>{
     // 3.1. Select each faq content
@@ -93,8 +90,35 @@ const toggleItem = (item) =>{
     item.classList.add('faq-open')
 
     }
-
-
-
-  
 }
+/*========= SHOW SCROLL UP ==========*/
+const scrollUp = () =>{
+    const scrollUp = document.getElementById('scroll-up')
+
+    this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+                        : scrollUp.classList.remove('show-scroll')
+}
+
+window.addEventListener('scroll', scrollUp);
+
+/*============ SCROLL SECTIONS ACTIVE LINK ==========*/
+const sections = document.querySelectorAll('section[id]');
+
+const scrollActive = () => {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight,
+            sectionTop = current.offsetTop - 58,
+            sectionId = current.getAttribute('id'),
+            sectionClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            sectionClass.classList.add('active-link');
+        } else {
+            sectionClass.classList.remove('active-link');
+        }
+    });
+};
+
+window.addEventListener('scroll', scrollActive);
